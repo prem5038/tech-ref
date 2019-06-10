@@ -1,0 +1,97 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Search'" [icon]="'fa-table'"></app-page-header>
+
+    <div class="row">
+            <div class="col-xl-12 text-xs-center">
+                <div class="card mb-3">
+                    <div class="card-body">
+                            <form role="form">
+                                    <fieldset class="form-group">
+                                        <!-- <label class="search-title">Search for trades</label> -->
+                                        <p>
+                                            <input class="form-control" placeholder="Enter keyword to search for trades">
+                                        </p>
+                                        <button type="button" class="btn btn-primary" style="visibility:visible;">Search</button>    
+                                        <button type="button" class="btn btn-secondary" style="visibility: hidden">Search</button>
+                                    </fieldset>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-xl-12 text-xs-center">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                
+                                <p class="split-para">
+                                    Search Results:
+                                    <span>
+                                        <button type="button" class="btn btn-primary" (click)="getSelectedRows()">
+                                        Export Selected
+                                        </button>
+                                    </span>
+                                </p>
+
+                                <span>&nbsp;</span>
+                                
+                                <p style="width: 100%">
+                                    <ag-grid-angular 
+                                        #agGrid
+                                        style="width: 100%; height: 500px;" 
+                                        class="ag-theme-balham"
+                                        [rowData]="rowData | async" 
+                                        [columnDefs]="columnDefs"
+                                        rowSelection="multiple"
+                                        >
+                                    </ag-grid-angular>                                
+                                </p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                
+        </div>
+<!--
+    <div class="row">
+        <div class="col col-xl-6 col-lg-12">
+
+            <div class="card mb-3">
+                <div class="card-header">Hoverable rows</div>
+                <table class="card-body table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+-->
+</div>
